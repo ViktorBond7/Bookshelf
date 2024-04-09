@@ -1,0 +1,25 @@
+// switcher dark/light themes
+(function (window, document, undefined) {
+  let darkMode = localStorage.getItem('my_darkMode');
+  if (darkMode) {
+    document.documentElement.className += ' darkmode';
+  }
+})(window, document);
+
+(function (window, document, undefined) {
+  let switcherMode = document.querySelector('.switch1');
+  switcherMode.addEventListener(
+    'change',
+    function (event) {
+      console.log('hjg');
+      event.preventDefault();
+      document.documentElement.classList.toggle('darkmode');
+      if (document.documentElement.classList.contains('darkmode')) {
+        localStorage.setItem('my_darkMode11', true);
+        return;
+      }
+      localStorage.removeItem('my_darkMode');
+    },
+    false
+  );
+})(window, document);
